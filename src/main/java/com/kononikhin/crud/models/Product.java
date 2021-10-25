@@ -37,7 +37,16 @@ public class Product {
     private Double price;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name="currency_id")
+    @JoinColumn(name = "currency_id")
     private Currency currency;
+
+    public void frontProductToDbProduct(Product frontProduct) {
+
+        this.name = frontProduct.getName();
+        this.description = frontProduct.getDescription();
+        this.price = frontProduct.getPrice();
+        this.currency = frontProduct.getCurrency();
+
+    }
 
 }
